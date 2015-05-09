@@ -131,16 +131,16 @@ public class TimeInterceptor implements Translator {
 						&& method.equals("nanoTime")) {
 					m.replace("{ $_ = " + s + ".nanoTime(); }");
 				}
-				// redirect calls to Thread.sleep()
-				if (className.equals("java.lang.Thread")
-						&& method.equals("sleep")) {
-					m.replace("{ " + s + ".sleep($$); }");
-				}
-				// redirect calls to Thread.start()
-				if (className.equals("java.lang.Thread")
-						&& method.equals("start")) {
-					m.replace("{ " + s + ".start(); }");
-				}
+//				// redirect calls to Thread.sleep()
+//				if (className.equals("java.lang.Thread")
+//						&& method.equals("sleep")) {
+//					m.replace("{ " + s + ".sleep($$); }");
+//				}
+//				// redirect calls to Thread.start()
+//				if (className.equals("java.lang.Thread")
+//						&& method.equals("start")) {
+//					m.replace("{ " + s + ".start(); }");
+//				}
 			}
 		});
 
