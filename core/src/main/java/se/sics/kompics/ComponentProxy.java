@@ -61,4 +61,6 @@ public interface ComponentProxy {
     public <P extends PortType> Channel<P> connect(Positive<P> positive, Negative<P> negative, ChannelSelector<?, ?> selector, ChannelFactory factory);
 
     public <P extends PortType> void disconnect(Channel<P> c);
+    
+    public void subscribe(Handler handler, Positive port);
 }

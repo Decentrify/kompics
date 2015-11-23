@@ -425,18 +425,23 @@ public abstract class ComponentDefinition {
         
         @Override
         public <P extends PortType> Channel<P> connect(Positive<P> positive, Negative<P> negative, ChannelFactory factory) {
-            return ComponentDefinition.this.connect(positive, negative, factory);
+            return ComponentDefinition.this.connect(negative, positive, factory);
         }
         
         @Override
-        public <P extends PortType> Channel<P> connect(Positive<P> positive, Negative<P> negative, 
+        public <P extends PortType> Channel<P> connect(Positive<P> positive, Negative<P> negative,
                 ChannelSelector<?, ?> selector, ChannelFactory factory) {
-            return ComponentDefinition.this.connect(positive, negative, selector, factory);
+            return ComponentDefinition.this.connect(negative, positive, selector, factory);
         }
         
         @Override
         public <P extends PortType> void disconnect(Channel<P> c) {
             ComponentDefinition.this.disconnect(c);
+        }
+
+        @Override
+        public void subscribe(Handler handler, Positive port) {
+            ComponentDefinition.this.subscribe(handler, port);
         }
     };
 
